@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+}
+/** Login **/
+.login,
+.crear-cuenta {
+    background: #455A64;
+}
+.contenedor-formulario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.contenedor-formulario h1 {
+    text-align: center;
+    color: white;
+}
+.contenedor-formulario h1 span {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.caja-login {
+    background-color: #f2f2f2;
+    border: 1px solid #707070;
+    max-width: 650px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
