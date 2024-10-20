@@ -3,8 +3,12 @@ const routes = require("./routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+// Helpers cn funciones ->
+const helpers = require("./helpers");
+
 // Creacion de la conexion a base de datos ->
 const sequelize = require("./config/db");
+const { vardump } = require("./helpers");
 
 require("./models/Proyectos");
 
@@ -30,6 +34,12 @@ app.set("view engine", "pug");
 
 // Añadiendo la carpeta de las vistas ->
 app.set("views", path.join(__dirname, "./views"));
+
+// Pasar vardump a la app ->
+app.use((req, res, next) => {
+  res.locals.vardump = helpers.vardump;
+  next();
+});
 
 // Importacion de bodyParser para leer datos del formulario ->
 app.use(bodyParser.urlencoded({ extended: true }));
