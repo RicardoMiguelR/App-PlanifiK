@@ -20,6 +20,18 @@ module.exports = function () {
     proyectosController.nuevoProyecto
   );
   router.get("/proyectos/:url", proyectosController.proyectoPorUrl);
+  router.get("/proyecto/editar/:id", proyectosController.formularioEditar);
+  router.post(
+    "/nuevo-proyecto/:id",
+    [
+      body("nombre")
+        .notEmpty()
+        .withMessage("¡Debes actualizar el nombre de tu proyecto!")
+        .trim()
+        .escape(),
+    ],
+    proyectosController.actualizarProyecto
+  );
 
   return router;
 };
