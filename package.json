@@ -5,20 +5,30 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "start": "concurrently \"npm run dev \" \"npm run watch \" ",
+    "watch": "webpack --watch --mode development"
   },
   "author": "Ricardo Miguel Raya",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
+    "concurrently": "^9.0.1",
     "express": "^4.21.1",
     "express-validator": "^7.2.0",
     "mysql2": "^3.11.3",
     "nanoid": "^5.0.7",
     "pug": "^3.0.3",
     "sequelize": "^6.37.4",
-    "slug": "^10.0.0"
+    "slug": "^10.0.0",
+    "sweetalert2": "^11.14.4"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "nodemon": "^3.1.7",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }

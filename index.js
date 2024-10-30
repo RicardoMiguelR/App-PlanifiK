@@ -3,7 +3,7 @@ const routes = require("./routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-// Helpers cn funciones ->
+// Helpers con funciones ->
 const helpers = require("./helpers");
 
 // Creacion de la conexion a base de datos ->
