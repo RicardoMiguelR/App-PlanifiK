@@ -1,5 +1,4 @@
 const { DataTypes } = require("sequelize");
-
 const sequelize = require("../config/db");
 
 // Importacion dinamica de nanoid ->
@@ -12,16 +11,16 @@ const Proyectos = sequelize.define(
   "Proyectos",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(12),
       autoIncrement: true,
       primaryKey: true,
     },
     nombre: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     url: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
   },
   {

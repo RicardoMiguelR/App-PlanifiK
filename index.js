@@ -10,7 +10,9 @@ const helpers = require("./helpers");
 const sequelize = require("./config/db");
 const { vardump } = require("./helpers");
 
+//Importacion de modelos ->
 require("./models/Proyectos");
+require("./models/Tareas");
 
 async function connectDatabase() {
   try {

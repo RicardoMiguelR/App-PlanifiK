@@ -1,4 +1,5 @@
 const Proyectos = require("../models/Proyectos");
+const Tareas = require("../models/Tareas");
 const { validationResult } = require("express-validator");
 
 exports.proyectosHome = async (req, res) => {
@@ -50,12 +51,22 @@ exports.proyectoPorUrl = async (req, res, next) => {
     proyectosPromise,
     proyectoPromise,
   ]);
+
+  // consultamos tareas de proyecto actual
+  const tareas = await Tareas.findAll({
+    where: {
+      ProyectoId: proyecto.id,
+    },
+    include: [{ model: Proyectos }],
+  });
+
   if (!proyecto) return next();
   // Render a la vista ->
   res.render("tareas", {
     nombrePagina: "Tareas del proyecto",
     proyectos,
     proyecto,
+    tareas,
   });
 };
 

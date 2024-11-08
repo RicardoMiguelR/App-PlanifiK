@@ -40,3 +40,7 @@ body {
 #nombre {
   width: 50%;
 }
+
+.completo {
+  color: green;
+}
