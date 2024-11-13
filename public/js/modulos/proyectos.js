@@ -21,15 +21,6 @@ if (btnEliminar) {
       const url = `${location.origin}/proyectos/${proyectoUrl}`;
       try {
         const respuesta = await axios.delete(url, { params: { proyectoUrl } });
-        Swal.fire({
-          title: "¡Eliminado exitosamente!",
-          text: respuesta.data,
-          icon: "success",
-          showConfirmButton: false,
-        });
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
       } catch (error) {
         Swal.fire({
           icon: "error",
