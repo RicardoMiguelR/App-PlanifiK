@@ -44,3 +44,32 @@ body {
 .completo {
   color: green;
 }
+
+.barra-avance {
+  width: 50%;
+  height: 2rem;
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+.porcentaje {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgb(17, 121, 17),
+    rgb(10, 80, 82),
+    rgb(253, 187, 45)
+  );
+  transition: width 0.5s ease;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
