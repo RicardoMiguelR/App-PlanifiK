@@ -5,6 +5,7 @@ Proyecto simple, sistema para agregar proyectos, almacenarlos en base de datos c
 Para este desarrollo simple se usaran tecnologias como:
 
 - Html
+- Pug
 - Css
 - Tailwind Css
 - Javascript
