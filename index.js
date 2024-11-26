@@ -13,6 +13,7 @@ const { vardump } = require("./helpers");
 //Importacion de modelos ->
 require("./models/Proyectos");
 require("./models/Tareas");
+require("./models/Usuarios");
 
 async function connectDatabase() {
   try {
