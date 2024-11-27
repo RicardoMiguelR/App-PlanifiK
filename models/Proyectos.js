@@ -11,7 +11,7 @@ const Proyectos = sequelize.define(
   "Proyectos",
   {
     id: {
-      type: DataTypes.INTEGER(12),
+      type: DataTypes.INTEGER(50),
       autoIncrement: true,
       primaryKey: true,
     },
