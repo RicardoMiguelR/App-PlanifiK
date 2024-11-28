@@ -9,21 +9,34 @@ const Usuarios = sequelize.define(
   "Usuarios",
   {
     id: {
-      type: DataTypes.INTEGER(50),
+      type: DataTypes.INTEGER(20),
       autoIncrement: true,
       primaryKey: true,
     },
     email: {
       type: DataTypes.STRING(60),
       allowNull: false,
-      unique: true,
+      unique: {
+        args: true,
+        msg: "Usuario ya registrado",
+      },
       validate: {
-        isEmail: true,
+        isEmail: {
+          msg: "Agrega un correo válido",
+        },
+        notEmpty: {
+          msg: "Agrega un email en el campo",
+        },
       },
     },
     password: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
       allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Agrega un password en el campo",
+        },
+      },
     },
   },
   {
