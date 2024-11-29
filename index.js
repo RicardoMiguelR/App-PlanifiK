@@ -3,6 +3,8 @@ const routes = require("./routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 // Helpers con funciones ->
 const helpers = require("./helpers");
@@ -30,14 +32,14 @@ connectDatabase();
 // Creacion de app de express ->
 const app = express();
 
-// Importacion de bodyParser para leer datos del formulario ->
-app.use(bodyParser.urlencoded({ extended: true }));
-
 // Importacion de los archivos estaticos ->
 app.use(express.static("public"));
 
 // Importacion pug ->
 app.set("view engine", "pug");
+
+// Importacion de bodyParser para leer datos del formulario ->
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Añadiendo la carpeta de las vistas ->
 app.set("views", path.join(__dirname, "./views"));
@@ -45,9 +47,22 @@ app.set("views", path.join(__dirname, "./views"));
 // Agregar flash messages ->
 app.use(flash());
 
+// Agregar cookie-parser ->
+app.use(cookieParser());
+
+// Agregar express-session, permite navegar por distintas paginas sin autenticarse nuevamente ->
+app.use(
+  session({
+    secret: "superSecreto",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 // Pasar vardump a la app ->
 app.use((req, res, next) => {
   res.locals.vardump = helpers.vardump;
+  res.locals.mensajes = req.flash();
   next();
 });
 
