@@ -6,6 +6,12 @@ exports.formularioCrearCuenta = (req, res) => {
   });
 };
 
+exports.formularioIniciarSesion = (req, res) => {
+  res.render("iniciarSesion", {
+    nombrePagina: "Iniciar sesion en RMUptask",
+  });
+};
+
 exports.crearCuenta = async (req, res) => {
   // Leer los datos ->
   const { email, password } = req.body;
@@ -24,6 +30,8 @@ exports.crearCuenta = async (req, res) => {
     res.render("crearCuenta", {
       mensajes: req.flash(),
       nombrePagina: "Crear cuenta en Uptask",
+      email,
+      password,
     });
   }
 };
