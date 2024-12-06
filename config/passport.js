@@ -3,7 +3,6 @@ const LocalStrategy = require("passport-local").Strategy;
 
 // Referenciar el modelo donde se va a autenticar ->
 const Usuarios = require("../models/Usuarios");
-const { where } = require("sequelize");
 
 // Local strategy - Login con credenciales propias (usuario y password) ->
 passport.use(
@@ -15,9 +14,17 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const usuario = await Usuarios.find({
+        const usuario = await Usuarios.findOne({
           where: { email: email },
         });
+        // El usuario existe, password incorrecto ->
+        if (!usuario.verificarPassword(password)) {
+          return done(null, false, {
+            message: "Password incorrecto",
+          });
+        }
+        // El mail existe y el password es correcto ->
+        return done(null, usuario);
       } catch (error) {
         // Este usuario no existe ->
         return done(null, false, {
@@ -27,3 +34,15 @@ passport.use(
     }
   )
 );
+
+// Serialzar el usuario ->
+passport.serializeUser((usuario, callback) => {
+  callback(null, usuario);
+});
+
+// Deserializar el usuario ->
+passport.deserializeUser((usuario, callback) => {
+  callback(null, usuario);
+});
+
+module.exports = passport;

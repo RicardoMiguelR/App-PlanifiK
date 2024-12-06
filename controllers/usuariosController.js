@@ -7,8 +7,10 @@ exports.formularioCrearCuenta = (req, res) => {
 };
 
 exports.formularioIniciarSesion = (req, res) => {
+  const { error } = res.locals.mensajes;
   res.render("iniciarSesion", {
     nombrePagina: "Iniciar sesion en RMUptask",
+    error,
   });
 };
 
