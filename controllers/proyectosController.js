@@ -114,6 +114,7 @@ exports.actualizarProyecto = async (req, res) => {
   }
 };
 
+// Bug pendiente, se elimina proyecto y no se actualiza ni se redirige a vista sin proyecto eliminado **** --->
 exports.eliminarProyecto = async (req, res, next) => {
   // req, query o params ->
   const { proyectoUrl } = req.query;
