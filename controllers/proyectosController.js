@@ -3,7 +3,8 @@ const Tareas = require("../models/Tareas");
 const { validationResult } = require("express-validator");
 
 exports.proyectosHome = async (req, res) => {
-  const proyectos = await Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectos = await Proyectos.findAll({ where: { UsuarioId } });
   res.render("index", {
     nombrePagina: "Proyectos",
     proyectos,
@@ -11,7 +12,8 @@ exports.proyectosHome = async (req, res) => {
 };
 
 exports.formularioProyecto = async (req, res) => {
-  const proyectos = await Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectos = await Proyectos.findAll({ where: { UsuarioId } });
   res.render("nuevoProyecto", {
     nombrePagina: "Nuevo proyecto",
     proyectos,
@@ -19,7 +21,8 @@ exports.formularioProyecto = async (req, res) => {
 };
 
 exports.nuevoProyecto = async (req, res) => {
-  const proyectos = await Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectos = await Proyectos.findAll({ where: { UsuarioId } });
   // Vereficamos si hay errores de validacion ->
   const errores = validationResult(req);
   // Si hay errores, renderizamos el formulario de nuevo con los mensajes de erorr ->
@@ -33,7 +36,8 @@ exports.nuevoProyecto = async (req, res) => {
   // Si no hay errores, se agrega el proyecto ->
   const { nombre } = req.body;
   try {
-    await Proyectos.create({ nombre });
+    const UsuarioId = res.locals.usuario.id;
+    await Proyectos.create({ nombre, UsuarioId });
     res.redirect("/");
   } catch (error) {
     console.log(error);
@@ -41,10 +45,12 @@ exports.nuevoProyecto = async (req, res) => {
 };
 
 exports.proyectoPorUrl = async (req, res, next) => {
-  const proyectosPromise = Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectosPromise = Proyectos.findAll({ where: { UsuarioId } });
   const proyectoPromise = Proyectos.findOne({
     where: {
       url: req.params.url,
+      UsuarioId,
     },
   });
   const [proyectos, proyecto] = await Promise.all([
@@ -71,10 +77,12 @@ exports.proyectoPorUrl = async (req, res, next) => {
 };
 
 exports.formularioEditar = async (req, res) => {
-  const proyectosPromise = Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectosPromise = Proyectos.findAll({ where: { UsuarioId } });
   const proyectoPromise = Proyectos.findOne({
     where: {
       id: req.params.id,
+      UsuarioId,
     },
   });
   const [proyectos, proyecto] = await Promise.all([
@@ -90,7 +98,8 @@ exports.formularioEditar = async (req, res) => {
 };
 
 exports.actualizarProyecto = async (req, res) => {
-  const proyectos = await Proyectos.findAll();
+  const UsuarioId = res.locals.usuario.id;
+  const proyectos = await Proyectos.findAll({ where: { UsuarioId } });
   // Vereficamos si hay errores de validacion ->
   const errores = validationResult(req);
   // Si hay errores, renderizamos el formulario de nuevo con los mensajes de erorr ->
@@ -114,7 +123,7 @@ exports.actualizarProyecto = async (req, res) => {
   }
 };
 
-// Bug pendiente, se elimina proyecto y no se actualiza ni se redirige a vista sin proyecto eliminado **** --->
+// **** Bug pendiente, se elimina proyecto y no se actualiza ni se redirige a vista sin proyecto eliminado **** --->
 exports.eliminarProyecto = async (req, res, next) => {
   // req, query o params ->
   const { proyectoUrl } = req.query;

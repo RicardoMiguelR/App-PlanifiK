@@ -68,6 +68,8 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.vardump = helpers.vardump;
   res.locals.mensajes = req.flash();
+  // Almacenamos los datos del usuario autenticado ->
+  res.locals.usuario = { ...req.user } || null;
   next();
 });
 
