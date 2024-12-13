@@ -17,8 +17,9 @@ html(lang="en")
                     label(for="password") Password: 
                     input(type="password" name="password" placeholder="Tu password" value= password)
                 .campo.enviar
-                    input(type="submit" value="Iniciar sesion")
-                .campo 
+                    input.boton(type="submit" value="Iniciar sesion")
+                .campo.acciones
                     span ¿Eres nuevo? 
-                        a(href="/crear-cuenta") Crear tu cuenta 
+                        a(href="/crear-cuenta") Crear tu cuenta
+                        a(href="/reestablecer") ¿Olvidaste tu contraseña? 
         
