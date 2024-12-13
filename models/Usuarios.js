@@ -38,6 +38,8 @@ const Usuarios = sequelize.define(
         },
       },
     },
+    token: DataTypes.STRING,
+    expiracion: DataTypes.DATE,
   },
   {
     hooks: {

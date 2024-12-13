@@ -110,6 +110,7 @@ module.exports = function () {
     usuariosController.formularioReestablecerContraseña
   );
   router.post("/reestablecer", authController.enviarToken);
+  router.get("/reestablecer/:token", authController.resetPassword);
 
   return router;
 };
