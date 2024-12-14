@@ -2,7 +2,6 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 const Proyectos = require("../models/Proyectos");
 const bcrypt = require("bcrypt");
-
 const saltRounds = 10;
 
 const Usuarios = sequelize.define(
