@@ -78,3 +78,6 @@ app.use("/", routes());
 
 // Puerto en el que se ejecutara el servidor ->
 app.listen(4000);
+
+// Importamos handlers ->
+require("./handlers/email");
