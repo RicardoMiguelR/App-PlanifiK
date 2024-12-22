@@ -25,14 +25,22 @@ const transporter = nodemailer.createTransport({
 
 // transporter.sendMail(message)
 
+// Generar el Html ->
+const generarHtml = () => {
+  const html = pug.renderFile(
+    `${__dirname}/../views/emails/reestablecerPassword.pug`
+  );
+  return juice(html);
+};
+
 async function main() {
-  // send mail with defined transport object
+  // Enviar correo con objeto de transporte definido ->
   const info = await transporter.sendMail({
     from: "RMUptask <no-reply@rmuptask.com>",
     to: "cr7@correo.com",
     subject: "Password Reset ✔",
     text: "Hola",
-    html: "<b>Que transa</b>",
+    html: generarHtml(),
   });
 
   console.log("Message sent: %s", info.messageId);
