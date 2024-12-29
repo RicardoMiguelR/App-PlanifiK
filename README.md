@@ -1,17 +1,22 @@
-# Proyecto RMUptask
-Proyecto simple, sistema para agregar proyectos, almacenarlos en base de datos con MySQL, podras consultarlos en vista, listarlos e interactuar con ellos, podras actualizarlos, eliminarlos.
+# Proyecto Planifi-K
 
-#### Tecnologias
-Para este desarrollo simple se usaran tecnologias como:
+Este sistema permite gestionar y organizar proyectos de forma eficiente mediante tareas personalizables. Puedes crear proyectos, consultarlos en tu perfil, y editarlos o eliminarlos según sea necesario. Además, cada proyecto admite tareas a las que puedes asignar un grado de urgencia o importancia, con la posibilidad de actualizarlas o eliminarlas. Es una herramienta diseñada para facilitar la planificación y mantener tus proyectos organizados, similar a Trello, pero enfocada en la simplicidad y efectividad para cualquier tipo de proyecto.
+
+#### Tecnologias y herramientas
 
 - Html
 - Pug
 - Css
-- Tailwind Css
 - Javascript
-- MVC
 - Node Js
 - Express
 - MySQL
-
-##### Proyecto en desarrollo ...
+- Sequelize
+- Passport
+- Mailtrap
+- Nodemailer
+- Arquitectura MVC
+- Axios
+- Bcrypt
+- Babel
+- Webpack

@@ -49,7 +49,7 @@ exports.enviarToken = async (req, res) => {
   // Enviar el correo con el token ->
   await enviarEmail.enviar({
     usuario,
-    subject: "Password Reset ✔",
+    subject: "Reestablecer contraseña ✔",
     resetUrl,
     archivo: "reestablecerPassword",
   });

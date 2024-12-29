@@ -29,7 +29,7 @@ exports.enviar = async (opciones) => {
     wordwrap: 120,
   });
   let infoMensaje = {
-    from: "RMUptask Gestion de proyectos <no-reply@rmuptask.com>",
+    from: "Planifi-K Gestión de proyectos <no-reply@planifik.com>",
     to: opciones.usuario.email,
     subject: opciones.subject,
     text,

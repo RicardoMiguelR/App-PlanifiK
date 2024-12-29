@@ -24,7 +24,7 @@ const Usuarios = sequelize.define(
           msg: "Agrega un correo válido",
         },
         notEmpty: {
-          msg: "Agrega un email en el campo",
+          msg: "Agrega un correo en el campo",
         },
       },
     },
@@ -33,9 +33,13 @@ const Usuarios = sequelize.define(
       allowNull: false,
       validate: {
         notEmpty: {
-          msg: "Agrega un password en el campo",
+          msg: "Agrega una contraseña en el campo",
         },
       },
+    },
+    activo: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     token: DataTypes.STRING,
     expiracion: DataTypes.DATE,

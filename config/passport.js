@@ -15,12 +15,15 @@ passport.use(
     async (email, password, done) => {
       try {
         const usuario = await Usuarios.findOne({
-          where: { email: email },
+          where: {
+            email,
+            activo: 1,
+          },
         });
         // El usuario existe, password incorrecto ->
         if (!usuario.verificarPassword(password)) {
           return done(null, false, {
-            message: "Password incorrecto",
+            message: "¡Contraseña incorrecta!",
           });
         }
         // El mail existe y el password es correcto ->
@@ -28,7 +31,7 @@ passport.use(
       } catch (error) {
         // Este usuario no existe ->
         return done(null, false, {
-          message: "Esta cuenta no existe",
+          message: "¡Esta cuenta no existe!",
         });
       }
     }
