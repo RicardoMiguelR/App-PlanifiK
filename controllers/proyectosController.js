@@ -58,6 +58,10 @@ exports.proyectoPorUrl = async (req, res, next) => {
     proyectoPromise,
   ]);
 
+  if (!proyecto) {
+    return next();
+  }
+
   // consultamos tareas de proyecto actual
   const tareas = await Tareas.findAll({
     where: {
@@ -66,7 +70,6 @@ exports.proyectoPorUrl = async (req, res, next) => {
     include: [{ model: Proyectos }],
   });
 
-  if (!proyecto) return next();
   // Render a la vista ->
   res.render("tareas", {
     nombrePagina: "Tareas del proyecto",

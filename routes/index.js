@@ -86,6 +86,20 @@ module.exports = function () {
     tareasController.cambiarEstadoTarea
   );
 
+  // Traemos tareas mediante id para editar ->
+  router.get(
+    "/tarea/editar/:id",
+    authController.usuarioAutenticado,
+    tareasController.formularioEditarTarea
+  );
+
+  // Actualizar tarea mediante id ->
+  router.post(
+    "/tarea/editar/:id",
+    authController.usuarioAutenticado,
+    tareasController.actualizarTarea
+  );
+
   // Eliminar una tarea ->
   router.delete(
     "/tareas/:id",
