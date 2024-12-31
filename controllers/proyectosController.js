@@ -144,11 +144,15 @@ exports.actualizarProyecto = async (req, res) => {
 
 // **** Bug pendiente, se elimina proyecto y no se actualiza ni se redirige a vista sin proyecto eliminado **** --->
 exports.eliminarProyecto = async (req, res, next) => {
-  // req, query o params ->
   const { proyectoUrl } = req.query;
-  const resultado = await Proyectos.destroy({ where: { url: proyectoUrl } });
-  if (!resultado) {
-    return next();
+  try {
+    const resultado = await Proyectos.destroy({ where: { url: proyectoUrl } });
+    if (!resultado) {
+      return next();
+    }
+    res.status(200).send("Proyecto eliminado correctamente");
+  } catch (error) {
+    console.error("Error al eliminar el proyecto: ", error);
+    res.status(500).send("Error al eliminar el proyecto");
   }
-  res.status(200).send("Proyecto eliminado correctamente");
 };

@@ -18,6 +18,7 @@ const { vardump } = require("./helpers");
 require("./models/Proyectos");
 require("./models/Tareas");
 require("./models/Usuarios");
+require("./models/associations");
 
 async function connectDatabase() {
   try {

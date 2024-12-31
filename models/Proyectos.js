@@ -24,6 +24,7 @@ const Proyectos = sequelize.define(
     },
   },
   {
+    // Se crea la url dinamico con id mediante el hook ->
     hooks: {
       beforeCreate: async (proyecto) => {
         const id = await nanoid();
