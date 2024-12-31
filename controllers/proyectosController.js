@@ -116,10 +116,26 @@ exports.actualizarProyecto = async (req, res) => {
   // Si no hay errores, se actualiza el proyecto ->
   const { nombre } = req.body;
   try {
-    await Proyectos.update(
-      { nombre: nombre },
-      { where: { id: req.params.id } }
-    );
+    // Buscamos el proyecto actual ->
+    const proyecto = await Proyectos.findOne({
+      where: {
+        id: req.params.id,
+        UsuarioId,
+      },
+    });
+    if (!proyecto) {
+      return res.redirect("/");
+    }
+    // Extraemos el nanoid de la url actual ->
+    const urlActual = proyecto.url; // Extraemos la url completa *
+    const idActual = urlActual.split("-").pop(); // Extraemos solo el id de la url *
+    // Generamos la nueva url con el nuevo nombre y el id ya existente ->
+    const urlActualizada = `${nombre
+      .toLowerCase()
+      .replace(/ /g, "-")}-${idActual}`;
+    proyecto.nombre = nombre;
+    proyecto.url = urlActualizada;
+    await proyecto.save();
     res.redirect("/");
   } catch (error) {
     console.log(error);
