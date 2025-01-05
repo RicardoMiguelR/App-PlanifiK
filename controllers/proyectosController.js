@@ -72,7 +72,7 @@ exports.proyectoPorUrl = async (req, res, next) => {
 
   // Render a la vista ->
   res.render("tareas", {
-    nombrePagina: "Tareas del proyecto",
+    nombrePagina: "Proyecto",
     proyectos,
     proyecto,
     tareas,

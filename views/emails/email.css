@@ -2,26 +2,148 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-h2 {
-  font-size: 3rem;
-  text-align: center;
+/*** Correo reestablecer contraseña ***/
+/* Contenedor general */
+.email-container {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1e1e2f;
+  color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-a {
-  margin-top: 2rem;
+/* Título */
+.email-container h2 {
+  font-size: 24px;
   text-align: center;
-  margin: auto;
-  display: block;
-  border-radius: 20px;
-  padding: 10px;
-  width: 25rem;
-  color: black;
-  background-color: aquamarine;
-  font-weight: bold;
-  text-transform: uppercase;
+  color: #e94560;
+  margin-bottom: 20px;
+}
+
+/* Texto general */
+.email-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+  color: #d0d0d0;
+}
+
+/* Botón de acción */
+.email-container a.button {
+  display: inline-block;
+  background: #e94560;
+  color: #fff;
   text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(233, 69, 96, 0.5);
 }
 
-p {
-  line-height: 2;
+.email-container a.button:hover {
+  background: #d73350;
+  transform: translateY(-2px);
+}
+
+/* Enlaces */
+.email-container a.link {
+  color: #e94560;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .email-container {
+    padding: 15px;
+  }
+
+  .email-container h2 {
+    font-size: 20px;
+  }
+
+  .email-container a.button {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+}
+
+/*** Correo confirmar cuenta ***/
+/* Contenedor general */
+.email-container {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1e1e2f;
+  color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Título */
+.email-container h2 {
+  font-size: 24px;
+  text-align: center;
+  color: #5c67f2; /* Color distinto para el título */
+  margin-bottom: 20px;
+}
+
+/* Texto general */
+.email-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+  color: #d0d0d0;
+}
+
+/* Botón de acción */
+.email-container a.button {
+  display: inline-block;
+  background: #5c67f2; /* Diferente tono de azul para el botón */
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(92, 103, 242, 0.5);
+}
+
+.email-container a.button:hover {
+  background: #4b55d0; /* Color más oscuro en hover */
+  transform: translateY(-2px);
+}
+
+/* Enlaces */
+.email-container a.link {
+  color: #5c67f2; /* El mismo tono azul del botón */
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .email-container {
+    padding: 15px;
+  }
+
+  .email-container h2 {
+    font-size: 20px;
+  }
+
+  .email-container a.button {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
 }

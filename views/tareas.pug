@@ -1,25 +1,35 @@
 extends layout
 
-block contenido 
-    .contenido-principal 
+block contenido
+    .contenido-principal
+
+        .contenedor-acciones
+            a(href=`/proyecto/editar/${proyecto.id}` class="boton") Editar proyecto
+            button#eliminar-proyecto(data-proyecto-url=proyecto.url type="button" class="boton-eliminar") Eliminar proyecto
+
         h1 #{nombrePagina} - #{proyecto.nombre}
+
+        .avance
+            h3 Avance del proyecto
+            #barra-avance.barra-avance
+                #porcentaje.porcentaje
 
         form.agregar-tarea(action=`/proyectos/${proyecto.url}` method="POST")
             .campo
-                label(for="tarea") Tarea: 
+                label(for="tarea") Añadir una tarea: 
                 input(type="text" id="tarea" name="tarea" placeholder="Nombre tarea")
-            .campo.enviar
-                input.boton.nueva-tarea(type="submit" value="Agregar")
-
-        //- pre= vardump(tareas)
+                input.boton.nueva-tarea(type="submit" value="Guardar")
         
-        .listado-pendientes 
+        .titulo-tareas 
+            h3 Tareas:
+
+        .listado-pendientes
             ul
                 if tareas.length === 0
                     h3 ¡No hay tareas actualmente!
                 else 
-                    each tarea in tareas 
-                        li.tarea(data-tarea=tarea.id) 
+                    each tarea in tareas
+                        li.tarea(data-tarea=tarea.id)
                             p= tarea.tarea
                             .acciones
                                 if tarea.estado
@@ -28,14 +38,3 @@ block contenido
                                     i.far.fa-check-circle
                                 i.fas.fa-trash
                                 a(href=`/tarea/editar/${tarea.id}` class="boton") Editar
-
-        // Avance del proyecto ->
-        .avance 
-            h3 Avance del proyecto
-            #barra-avance.barra-avance
-                #porcentaje.porcentaje
-
-        // Acciones que se pueden realizar ->
-        .contenedor-acciones 
-            a(href=`/proyecto/editar/${proyecto.id}` class="boton") Editar proyecto
-            button#eliminar-proyecto(data-proyecto-url=proyecto.url type="button" class="boton-eliminar") Eliminar proyecto

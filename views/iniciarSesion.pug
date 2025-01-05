@@ -4,7 +4,7 @@ html(lang="en")
         include partials/header
     body.login
         .contenedor-formulario 
-            h1 Inicia Sesion
+            h1 Inicia Sesión
             
             if locals.mensajes
                 .alertas 
@@ -16,15 +16,14 @@ html(lang="en")
             form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
                 .campo
                     label(for="email") Email: 
-                    input(type="text" name="email" placeholder="Tu email" value= email)
+                    input(type="text" name="email" placeholder="Tu email" value=email)
                 .campo
                     label(for="password") Password: 
-                    input(type="password" name="password" placeholder="Tu password" value= password)
+                    input(type="password" name="password" placeholder="Tu password" value=password)
                 .campo.enviar
-                    input.boton(type="submit" value="Iniciar sesion")
+                    input.boton(type="submit" value="Iniciar sesión")
                 .campo.acciones
                     span ¿Eres nuevo? 
                         a(href="/crear-cuenta") Crear tu cuenta
                 .campo.reestablecer
-                    a(href="/reestablecer") ¿Olvidaste tu contraseña? 
-        
+                    a(href="/reestablecer") ¿Olvidaste tu contraseña?

@@ -7,7 +7,9 @@ html(lang="en")
             include ./email.css
             
     body
-        h2 Confirma tu cuenta Planifi-K
-        p Ya estas casi inscrito, solo da click en el siguiente botón para finalizar el proceso.
-        a(href=`${confirmarUrl}`) Confirmar cuenta
-        p Si no puedes acceder a este enlace, visita #{confirmarUrl}.
+        .email-container
+            h2 Confirmar cuenta en Planifi-K
+            p ¡Ya estás casi inscrito! Solo da click en el siguiente botón para finalizar el proceso.
+            a.button(href=`${confirmarUrl}`) Confirmar cuenta
+            p Si no puedes acceder a este enlace, visita directamente:
+                a.link(href=`${confirmarUrl}`)= confirmarUrl
