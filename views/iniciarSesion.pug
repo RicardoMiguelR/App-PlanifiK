@@ -3,27 +3,32 @@ html(lang="en")
     head
         include partials/header
     body.login
-        .contenedor-formulario 
-            h1 Inicia Sesión
-            
-            if locals.mensajes
-                .alertas 
-                    each categoria in Object.keys(locals.mensajes)
-                        each error in mensajes[categoria]
-                            .alerta(class=`${categoria}`)
-                                p= error
+        .contenedor-principal
+            .bienvenida
+                h2 Bienvenido a
+                img.logo(src="/path-to-logo.png" alt="Logo del sitio")
+                h2 Planifi-K
+                p La herramienta perfecta para gestionar tus proyectos y organizar tus tareas. Simplifica tu trabajo, optimiza tu tiempo y mantén todo bajo control de manera fácil y eficiente.
 
-            form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
-                .campo
-                    label(for="email") Email: 
-                    input(type="text" name="email" placeholder="Tu email" value=email)
-                .campo
-                    label(for="password") Password: 
-                    input(type="password" name="password" placeholder="Tu password" value=password)
-                .campo.enviar
-                    input.boton(type="submit" value="Iniciar sesión")
-                .campo.acciones
-                    span ¿Eres nuevo? 
-                        a(href="/crear-cuenta") Crear tu cuenta
-                .campo.reestablecer
-                    a(href="/reestablecer") ¿Olvidaste tu contraseña?
+            .contenedor-formulario 
+                h1 Inicia Sesión
+                
+                if locals.mensajes
+                    .alertas 
+                        each categoria in Object.keys(locals.mensajes)
+                            each error in mensajes[categoria]
+                                .alerta(class=`${categoria}`)
+                                    p= error
+
+                form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
+                    .campo
+                        input(type="text" name="email" placeholder="Correo electrónico" value=email)
+                    .campo 
+                        input(type="password" name="password" placeholder="Constraseña" value=password)
+                    .campo.enviar
+                        input.boton(type="submit" value="Iniciar sesión")
+                    .campo.acciones
+                        span ¿Eres nuevo? 
+                            a(href="/crear-cuenta") Registrate
+                    .campo.reestablecer
+                        a(href="/reestablecer") ¿Olvidaste tu contraseña?

@@ -18,22 +18,145 @@ body.login {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #121212, #1d1d1d);
   color: #fff;
+  margin: 0;
   display: flex;
+  height: 100vh;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.bienvenida {
+  flex: 1.5;
+  background-image: url("https://www.pwc.com/gx/en/issues/cybersecurity/digital-trust-insights/dti-hero-banner-global-animated.gif");
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bienvenida img.logo {
+  width: 150px;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.bienvenida h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bienvenida p {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 450px;
 }
 
 .contenedor-formulario {
-  background: #1d1d1d;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  background: #fffefe23;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   animation: fadeIn 0.8s ease-in-out;
+}
+
+.contenedor-formulario h1 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.campo {
+  margin-bottom: 1.5rem;
+  width: 25rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background: #1d1d1d;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.campo input::placeholder {
+  color: #aaa;
+}
+
+.boton {
+  background: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  background: #2980b9;
+}
+
+.acciones span {
+  margin-right: 0.5rem;
+}
+
+.reestablecer {
+  margin-top: 1rem;
+}
+
+.reestablecer a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.reestablecer a:hover {
+  color: #2980b9;
+}
+
+/*** Animaciones ***/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+  }
+
+  .bienvenida {
+    padding: 1.5rem;
+  }
+
+  .contenedor-formulario {
+    padding: 1.5rem;
+  }
 }
 
 h1 {
@@ -70,13 +193,13 @@ input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #444;
+  border-radius: 8px;
   background: #2b2b2b;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -90,7 +213,7 @@ input.boton {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background: #007bff;
+  background: #1157a1;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -99,20 +222,22 @@ input.boton {
 }
 
 input.boton:hover {
-  background: #0056b3;
+  background: #00000098;
+  color: white;
+  box-shadow: 1px 1px 8px 2px rgba(60, 150, 230, 1);
   transform: scale(1.02);
 }
 
 .campo.acciones,
 .campo.reestablecer {
-  text-align: center;
+  text-align: start;
   margin-top: 1rem;
   font-size: 0.9rem;
 }
 
 .campo.acciones a,
 .campo.reestablecer a {
-  color: #007bff;
+  color: #2989f0;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
@@ -120,7 +245,7 @@ input.boton:hover {
 
 .campo.acciones a:hover,
 .campo.reestablecer a:hover {
-  color: #00c3ff;
+  color: #fdee16cb;
 }
 
 /* Animaciones */
@@ -172,14 +297,6 @@ body {
   display: flex;
   margin-bottom: 2rem;
   max-width: 50%;
-}
-
-.campo {
-  margin-bottom: 1.5rem;
-  width: 100%;
-  background: #1e1e2f;
-  padding: 1rem;
-  border-radius: 10px;
 }
 
 label {
@@ -318,7 +435,7 @@ input.boton.nueva-tarea:hover {
   background: #c82333;
 }
 
-/* Animations */
+/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -330,7 +447,6 @@ input.boton.nueva-tarea:hover {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .contenido-principal {
     padding: 1.5rem;
