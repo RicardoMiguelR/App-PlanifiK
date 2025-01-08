@@ -775,3 +775,16 @@ a.cerrar-sesion:hover::before {
     font-size: 1.2rem;
   }
 }
+
+/*** Logo principal ***/
+.logo-principal {
+  width: 13rem;
+  position: static;
+}
+
+/*** logo barra 1 ***/
+.logo-barra1 {
+  width: 5.5rem;
+  margin-top: -1rem;
+  margin-bottom: -2rem;
+}
