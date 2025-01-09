@@ -85,20 +85,6 @@ body.login {
   display: block;
 }
 
-.campo input {
-  width: 100%;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 4px;
-  background: #1d1d1d;
-  color: #fff;
-  font-size: 1rem;
-}
-
-.campo input::placeholder {
-  color: #aaa;
-}
-
 .boton {
   background: #3498db;
   color: #fff;
@@ -208,7 +194,8 @@ input[type="password"]:focus {
   box-shadow: 0 0 10px rgba(0, 120, 255, 0.8);
 }
 
-input.boton {
+input.boton,
+input.boton-crear {
   width: 100%;
   padding: 12px;
   border: none;
@@ -221,7 +208,8 @@ input.boton {
   transition: background 0.3s, transform 0.2s;
 }
 
-input.boton:hover {
+input.boton:hover,
+input.boton-crear:hover {
   background: #00000098;
   color: white;
   box-shadow: 1px 1px 8px 2px rgba(60, 150, 230, 1);
@@ -236,6 +224,7 @@ input.boton:hover {
 }
 
 .campo.acciones a,
+.campo.iniciar a,
 .campo.reestablecer a {
   color: #2989f0;
   text-decoration: none;
@@ -244,6 +233,7 @@ input.boton:hover {
 }
 
 .campo.acciones a:hover,
+.campo.iniciar a:hover,
 .campo.reestablecer a:hover {
   color: #fdee16cb;
 }
@@ -778,13 +768,19 @@ a.cerrar-sesion:hover::before {
 
 /*** Logo principal ***/
 .logo-principal {
-  width: 13rem;
-  position: static;
+  width: 6rem;
+}
+
+h2.titulo-logo {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 /*** logo barra 1 ***/
 .logo-barra1 {
-  width: 5.5rem;
-  margin-top: -1rem;
-  margin-bottom: -2rem;
+  width: 6rem;
+  margin-top: -1.5rem;
+  margin-bottom: -2.5rem;
 }
