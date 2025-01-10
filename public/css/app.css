@@ -329,8 +329,10 @@ input.boton.nueva-tarea {
 }
 
 input.boton.nueva-tarea:hover {
-  background: #0056b3;
-  transform: scale(1.05);
+  background: #00000098;
+  color: white;
+  box-shadow: 1px 1px 8px 2px rgba(60, 150, 230, 1);
+  transform: scale(1.02);
 }
 
 /* Listado de tareas */
@@ -367,12 +369,29 @@ input.boton.nueva-tarea:hover {
   transition: color 0.3s ease;
 }
 
-.acciones i:hover {
+.acciones i.completar {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.acciones i.completar:hover {
+  color: #00ff80;
+  font-size: 1.3rem;
+}
+
+.acciones a.edit {
+  font-size: 1.2rem;
+  color: rgb(211, 208, 208);
+}
+
+.acciones i:hover,
+.acciones a:hover {
   color: #00c3ff;
 }
 
 .completo {
-  color: #28a745;
+  color: #39f164;
 }
 
 /* Barra de avance */
@@ -382,17 +401,20 @@ input.boton.nueva-tarea:hover {
 
 .barra-avance {
   width: 100%;
-  height: 10px;
+  height: 22px;
   background: #444;
   border-radius: 10px;
   position: relative;
 }
 
 .porcentaje {
-  background: #007bff;
+  background: linear-gradient(135deg, #505808, #dcf02d);
   height: 100%;
   border-radius: 10px;
   transition: width 0.3s ease;
+  color: rgb(238, 238, 238);
+  align-content: center;
+  font-weight: 600;
 }
 
 /* Acciones del proyecto */
@@ -472,7 +494,7 @@ input.boton.nueva-tarea:hover {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background: #1e1e2f;
+  background: #212136d5;
   color: #e0e0e0;
 }
 
@@ -542,19 +564,55 @@ aside .panel.crear-proyecto .boton {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e94560;
-  color: #fff;
+  background: none;
+  cursor: none;
   text-decoration: none;
-  font-weight: bold;
-  padding: 0.8rem;
-  border-radius: 5px;
-  transition: all 0.3s;
-  font-size: 1rem;
 }
 
-aside .panel.crear-proyecto .boton:hover {
-  background: #d73350;
-  transform: scale(1.05);
+aside .panel.crear-proyecto .boton button.quitar {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #66ff66d5;
+  color: ghostwhite;
+  transition: all 0.4s;
+}
+
+aside .panel.crear-proyecto .boton button.quitar span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+}
+
+aside .panel.crear-proyecto .boton button.quitar:hover span {
+  color: black;
+}
+
+aside .panel.crear-proyecto .boton button.quitar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 130%;
+  z-index: 0;
+  background: #000;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+aside .panel.crear-proyecto .boton button.quitar:hover::before {
+  transform: translate3d(100%, 0, 0);
 }
 
 aside .panel.lista-proyectos h2 {
@@ -576,7 +634,7 @@ aside .panel.lista-proyectos ul li {
 aside .panel.lista-proyectos ul li a {
   text-decoration: none;
   color: #e0e0e0;
-  background: #34344a;
+  background: #52527265;
   padding: 0.8rem;
   display: block;
   border-radius: 5px;
@@ -584,8 +642,9 @@ aside .panel.lista-proyectos ul li a {
 }
 
 aside .panel.lista-proyectos ul li a:hover {
-  background: #e94560;
-  color: #fff;
+  box-shadow: 1px 1px 4px 1px rgba(253, 253, 253, 0.801);
+  color: #e0e0e0;
+  font-weight: 700;
 }
 
 /* Contenido */
@@ -625,7 +684,7 @@ main.contenedor block {
 .contenido-principal h1 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: #989997;
+  color: #bdbebc;
   text-align: center;
 }
 
@@ -783,4 +842,8 @@ h2.titulo-logo {
   width: 6rem;
   margin-top: -1.5rem;
   margin-bottom: -2.5rem;
+}
+
+h1.vista-inicio {
+  margin: 50px 50px 100px;
 }
