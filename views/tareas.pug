@@ -13,12 +13,20 @@ block contenido
             h3 Avance del proyecto
             #barra-avance.barra-avance
                 #porcentaje.porcentaje
+        
+        .formulario-tarea
+            if locals.mensajes
+                .alertas-tareas
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            .alerta-tareas(class=`${categoria}`)
+                                p= error
 
-        form.agregar-tarea(action=`/proyectos/${proyecto.url}` method="POST")
-            .campo
-                label(for="tarea") Añadir una tarea: 
-                input(type="text" id="tarea" name="tarea" placeholder="Nombre tarea")
-                input.boton.nueva-tarea(type="submit" value="Guardar")
+            form.agregar-tarea(action=`/proyectos/${proyecto.url}` method="POST")
+                .campo
+                    label(for="tarea") Añadir una tarea: 
+                    input(type="text" id="tarea" name="tarea" placeholder="Nombre tarea")
+                    input.boton.nueva-tarea(type="submit" value="Guardar")
         
         .titulo-tareas 
             h3 Tareas:

@@ -9,8 +9,12 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
   min-height: 100vh;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: #212136d5;
 }
 
 /*** Login ***/
@@ -164,6 +168,14 @@ h1 {
   text-align: center;
 }
 
+.alertas-tareas {
+  margin-bottom: 1px;
+}
+
+.alerta-tareas {
+  text-align: end;
+}
+
 form .campo {
   margin-bottom: 1.5rem;
 }
@@ -261,15 +273,6 @@ input.boton-crear:hover {
   }
 }
 
-/* General */
-body {
-  font-family: "Poppins", sans-serif;
-  background: #121212;
-  color: #e0e0e0;
-  margin: 0;
-  padding: 0;
-}
-
 .contenido-principal {
   width: 90%;
   max-width: 1200px;
@@ -316,7 +319,7 @@ input[type="text"]:focus {
 input.boton.nueva-tarea {
   float: right;
   margin-top: 1rem;
-  width: 200px;
+  width: 100%;
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -490,14 +493,6 @@ input.boton.nueva-tarea:hover {
 }
 
 /*** Diseño paginas principales ***/
-/* Estilo General */
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  background: #212136d5;
-  color: #e0e0e0;
-}
-
 header.barra {
   display: flex;
   justify-content: space-between;
@@ -839,9 +834,11 @@ h2.titulo-logo {
 
 /*** logo barra 1 ***/
 .logo-barra1 {
-  width: 6rem;
-  margin-top: -1.5rem;
-  margin-bottom: -2.5rem;
+  width: 4rem;
+  margin: auto;
+  background: #007bff;
+  border-radius: 20%;
+  padding: 5px;
 }
 
 h1.vista-inicio {

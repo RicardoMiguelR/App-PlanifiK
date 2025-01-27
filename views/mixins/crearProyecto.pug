@@ -1,4 +1,12 @@
 mixin crearProyecto(proyecto = {})
+
+    if locals.mensajes
+        .alertas-proyectos
+            each categoria in Object.keys(locals.mensajes)
+                each error in mensajes[categoria]
+                    .alerta-proyectos(class=`${categoria}`)
+                        p= error
+
     form.agregar-proyecto(action=`/nuevo-proyecto/${proyecto.id || ''}` method="POST")
         .campo
             label(for="nombre") Nombre proyecto:

@@ -4,21 +4,21 @@ const Tareas = require("../models/Tareas");
 exports.agregarTarea = async (req, res, next) => {
   //Obtencion del proyecto actual ->
   const proyecto = await Proyectos.findOne({ where: { url: req.params.url } });
-
   // Leer el valor del input ->
   const { tarea } = req.body;
-
+  // Validar que el input no esté vacío ->
+  if (!tarea) {
+    req.flash("error", "¡Agrega una tarea!");
+    return res.redirect(`/proyectos/${req.params.url}`);
+  }
   // Estado 0 = incompleto y ID del proyecto ->
   const estado = 0;
   const ProyectoId = proyecto.id;
-
   // Agregar a la base de datos ->
   const resultado = await Tareas.create({ tarea, estado, ProyectoId });
-
   if (!resultado) {
     return next();
   }
-
   res.redirect(`/proyectos/${req.params.url}`);
 };
 

@@ -8,7 +8,7 @@ const Tareas = sequelize.define("Tareas", {
     primaryKey: true,
   },
   tarea: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.STRING(250),
   },
   estado: {
     type: DataTypes.INTEGER(1),

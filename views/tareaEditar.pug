@@ -14,6 +14,13 @@ block contenido
                 select#estado(name="estado")
                     option(value="0" selected=tarea.estado === 0) Incompleta
                     option(value="1" selected=tarea.estado === 1) Completada
+            //- .campo 
+            //-     label(for="prioridad-editar") Prioridad:
+            //-     select#prioridad-editar(name="prioridad-editar")
+            //-         option(value="0" selected=tarea.prioridad === 0) Ninguna
+            //-         option(value="1" selected=tarea.prioridad === 1) Alta
+            //-         option(value="2" selected=tarea.prioridad === 2) Media
+            //-         option(value="3" selected=tarea.prioridad === 3) Baja  
 
             .campo.enviar
                 input.boton(type="submit" value="Guardar cambios")

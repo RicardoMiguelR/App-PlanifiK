@@ -23,6 +23,16 @@ exports.formularioProyecto = async (req, res) => {
 exports.nuevoProyecto = async (req, res) => {
   const UsuarioId = res.locals.usuario.id;
   const proyectos = await Proyectos.findAll({ where: { UsuarioId } });
+  // Verificamos si el campo proyecto esta vacio ->
+  const { nombre } = req.body;
+  if (!nombre) {
+    req.flash("error", "¡Agrega un proyecto!");
+    return res.render("nuevoProyecto", {
+      nombrePagina: "Nuevo proyecto",
+      proyectos,
+      mensajes: req.flash(),
+    });
+  }
   // Vereficamos si hay errores de validacion ->
   const errores = validationResult(req);
   // Si hay errores, renderizamos el formulario de nuevo con los mensajes de erorr ->
@@ -34,13 +44,17 @@ exports.nuevoProyecto = async (req, res) => {
     });
   }
   // Si no hay errores, se agrega el proyecto ->
-  const { nombre } = req.body;
   try {
     const UsuarioId = res.locals.usuario.id;
     await Proyectos.create({ nombre, UsuarioId });
     res.redirect("/");
   } catch (error) {
     console.log(error);
+    return res.render("nuevoProyecto", {
+      nombrePagina: "Nuevo proyecto",
+      proyectos,
+      mensajes: req.flash("error", "Ocurrio un error al agregar el proyecto"),
+    });
   }
 };
 

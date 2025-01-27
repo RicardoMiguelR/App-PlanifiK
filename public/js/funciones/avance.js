@@ -33,7 +33,6 @@ export const actualizarAvance = () => {
         padding: "2em",
         color: "#823bb1a9",
         backdrop: `
-            rgba(28, 170, 99, 0.301)
             url("https://i.pinimg.com/originals/1e/bd/62/1ebd62592ece9c36f32347098a8ddb21.gif")
             center center
             /cover
