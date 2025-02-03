@@ -16,7 +16,6 @@ if (tareas) {
           icono.classList.toggle("completo");
           actualizarAvance();
         }
-        console.log(respuesta);
       } catch (error) {
         console.error("¡Error al actualizar el estado de la tarea!", error);
       }
@@ -49,7 +48,6 @@ if (tareas) {
             });
             actualizarAvance();
           }
-          console.log(respuesta);
         } catch (error) {
           Swal.fire({
             icon: "error",

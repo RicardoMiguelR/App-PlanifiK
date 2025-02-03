@@ -22,7 +22,7 @@ html(lang="en")
 
                 form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
                     .campo
-                        input(type="text" name="email" placeholder="Correo electrónico" value=email)
+                        input.correo-iniciar(type="text" name="email" placeholder="Correo electrónico" value=email)
                     .campo 
                         input(type="password" name="password" placeholder="Constraseña" value=password)
                     .campo.enviar

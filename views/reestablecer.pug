@@ -15,8 +15,8 @@ html(lang="en")
                                 
             form.caja-login(method="POST" action="/reestablecer")
                 .campo
-                    label(for="email") Email: 
-                    input(type="text" name="email" placeholder="Tu email" value= email)
+                    h4(for="email") Email: 
+                    input.correo-reestablecer(type="text" name="email" placeholder="Tu correo" value= email)
                 .campo.enviar
                     input.boton(type="submit" value="Reestablecer contraseña")
                 .campo.acciones
