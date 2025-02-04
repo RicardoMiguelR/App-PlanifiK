@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "desarrollo": "concurrently \"npm run dev \" \"npm run watch \" ",
     "dev": "nodemon ./index.js",
-    "start": "concurrently \"npm run dev \" \"npm run watch \" ",
+    "start": "node ./index.js",
     "watch": "webpack --watch --mode development"
   },
   "author": "Ricardo Miguel Raya",
@@ -17,6 +18,7 @@
     "concurrently": "^9.0.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "express-session": "^1.18.1",
     "express-validator": "^7.2.0",

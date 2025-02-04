@@ -6,6 +6,8 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const passport = require("./config/passport");
+// Extraer valores de variables . ->
+require("dotenv").config({ path: ".env" });
 
 // Helpers con funciones ->
 const helpers = require("./helpers");
@@ -23,7 +25,7 @@ require("./models/associations");
 async function connectDatabase() {
   try {
     await sequelize.sync();
-    console.log("La conexión se ha establecido exitosamente.");
+    console.log("La conexión se ha establecido exitosamente...");
   } catch (error) {
     console.error("No se puede conectar a la base de datos:", error);
   }
@@ -77,5 +79,10 @@ app.use((req, res, next) => {
 // Importacion de rutas ->
 app.use("/", routes());
 
-// Puerto en el que se ejecutara el servidor ->
-app.listen(4000);
+// Servidor y puerto ->
+const host = process.env.HOST || "0.0.0.0";
+const port = process.env.PORT || 4000;
+
+app.listen(port, host, () => {
+  console.log("El servidor esta corriendo exitosamente...");
+});
